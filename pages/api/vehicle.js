@@ -2,6 +2,9 @@
 // Tesla API documentation: https://tesla-api.timdorr.com/
 
 import axios from 'axios';
+import Redis from 'ioredis';
+
+let redis = new Redis(process.env.REDIS_URL);
 
 const baseUrl = 'https://owner-api.teslamotors.com/api/1'
 const vehicleId = process.env.VEHICLE_ID;
@@ -11,10 +14,18 @@ axios.defaults.headers.common['Authorization'] = `Bearer ${process.env.AUTH_TOKE
 
 export default async function handler(req, res) {
   try {
-    await wakeVehicle();
-    // await wakeVehicleUntilWoken();
-    const data = await getVehicleData();
-    res.status(200).json(data)
+    let cache = await redis.get('cache');
+    cache = JSON.parse(cache);
+    if (cache) {
+      // cache hit!
+      res.status(200).json(cache);
+    } else {
+      // cache miss
+      await wakeVehicle();
+      const data = await getVehicleData();
+      redis.set('cache', JSON.stringify(data), 'EX', 300);
+      res.status(200).json(data);
+    }
   } catch (error) {
     res.status(400).json(error);
   }
