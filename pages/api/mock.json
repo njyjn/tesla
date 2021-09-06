@@ -1,0 +1,28 @@
+{
+	"display_name": "dummy",
+	"state": "online",
+	"charge_state": {
+	  "battery_level": 50,
+	  "battery_range": 100,
+	  "charging_state": "Disconnected",
+	  "time_to_full_charge": 2,
+	  "charger_power": 10,
+	  "charger_voltage": 240,
+	  "charge_rate": 2000,
+	  "charge_limit_soc": 90,
+	  "charge_limit_soc_max": 100
+	},
+	"climate_state": {
+	  "inside_temp": 20,
+	  "outside_temp": 5
+	},
+	"drive_state": {
+	  "power": 1
+	},
+	"vehicle_state": {
+	  "car_version": "mock",
+	  "odometer": 100,
+	  "sentry_mode": true,
+	  "timestamp": 0
+	}
+}

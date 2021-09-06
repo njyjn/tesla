@@ -3,6 +3,7 @@
 
 import axios from 'axios';
 import Redis from 'ioredis';
+import mock from './mock.json';
 
 let redis = new Redis(process.env.REDIS_URL);
 
@@ -14,35 +15,6 @@ axios.defaults.headers.common['Authorization'] = `Bearer ${process.env.AUTH_TOKE
 
 export default async function handler(req, res) {
   if (process.env.NODE_ENV === 'development') {
-    const mock = {
-      'display_name': 'dummy',
-      'state': 'online',
-      'charge_state': {
-        'battery_level': 50,
-        'battery_range': 100,
-        'charging_state': 'Charging',
-        // new!
-        'time_to_full_charge': 2,
-        'charger_power': 10,
-        'charger_voltage': 240,
-        'charge_rate': 2000,
-        'charge_limit_soc': 90,
-        'charge_limit_soc_max': 100
-      },
-      'climate_state': {
-        'inside_temp': 20,
-        'outside_temp': 5
-      },
-      'drive_state': {
-        'power': 1
-      },
-      'vehicle_state': {
-        'car_version': 'mock',
-        'odometer': 100,
-        'sentry_mode': true,
-        'timestamp': 0
-      }
-    };
     res.status(200).json(mock);
   } else {
     try {
