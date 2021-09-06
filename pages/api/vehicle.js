@@ -13,21 +13,51 @@ axios.defaults.baseURL = baseUrl;
 axios.defaults.headers.common['Authorization'] = `Bearer ${process.env.AUTH_TOKEN}`;
 
 export default async function handler(req, res) {
-  try {
-    let cache = await redis.get('cache');
-    cache = JSON.parse(cache);
-    if (cache) {
-      // cache hit!
-      res.status(200).json(cache);
-    } else {
-      // cache miss
-      await wakeVehicle();
-      const data = await getVehicleData();
-      redis.set('cache', JSON.stringify(data), 'EX', 300);
-      res.status(200).json(data);
+  if (process.env.NODE_ENV === 'development') {
+    const mock = {
+      'display_name': 'dummy',
+      'state': 'online',
+      'charge_state': {
+        'battery_level': 50,
+        'battery_range': 100,
+        'charging_state': 'Charging',
+        // new!
+        'time_to_full_charge': 2,
+        'charger_power': 10,
+        'charger_voltage': 240,
+        'charge_rate': 2000,
+        'charge_limit_soc': 90,
+        'charge_limit_soc_max': 100
+      },
+      'climate_state': {
+        'inside_temp': 20,
+        'outside_temp': 5
+      },
+      'vehicle_state': {
+        'car_version': 'mock',
+        'odometer': 100,
+        'sentry_mode': true,
+        'timestamp': 0
+      }
+    };
+    res.status(200).json(mock);
+  } else {
+    try {
+      let cache = await redis.get('cache');
+      cache = JSON.parse(cache);
+      if (cache) {
+        // cache hit!
+        res.status(200).json(cache);
+      } else {
+        // cache miss
+        await wakeVehicle();
+        const data = await getVehicleData();
+        redis.set('cache', JSON.stringify(data), 'EX', 300);
+        res.status(200).json(data);
+      }
+    } catch (error) {
+      res.status(400).json(error);
     }
-  } catch (error) {
-    res.status(400).json(error);
   }
 }
 
