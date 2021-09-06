@@ -1,12 +1,12 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Vehicle from './vehicle';
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div class='container-fluid'>
       <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Hello Panda</title>
         <meta name="description" content="Of course I built a dashboard for my Tesla" />
         <link rel="icon" href="/favicon.ico" />
@@ -19,9 +19,9 @@ export default function Home() {
         <p>
           <i>Of course I built a dashboard for my Tesla</i>
         </p>
-
         <Vehicle />
       </main>
+
 
       <footer className={styles.footer}>
         <a

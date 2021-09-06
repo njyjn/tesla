@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "axios": "^0.21.3",
+    "bootstrap": "^5.0.0-beta3",
     "ioredis": "^4.27.9",
     "next": "11.1.2",
     "react": "17.0.2",
