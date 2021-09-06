@@ -105,7 +105,13 @@ function filterVehicleData(data) {
     'charge_state': {
       'battery_level': data.charge_state.battery_level,
       'battery_range': data.charge_state.battery_range,
-      'charging_state': data.charge_state.charging_state
+      'charging_state': data.charge_state.charging_state,
+      'time_to_full_charge': data.charge_state.time_to_full_charge,
+      'charger_power': data.charge_state.charger_power,
+      'charger_voltage': data.charge_state.charger_voltage,
+      'charge_rate': data.charge_state.charge_rate,
+      'charge_limit_soc': data.charge_state.charge_limit_soc,
+      'charge_limit_soc_max': data.charge_state.charge_limit_soc_max
     },
     'climate_state': {
       'inside_temp': data.climate_state.inside_temp,
