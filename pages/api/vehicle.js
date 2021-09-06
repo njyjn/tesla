@@ -59,8 +59,35 @@ async function wakeVehicleUntilWoken() {
 }
 
 async function getVehicleData() {
+  const essentialOnly = true;
   const res = await axios.get(`${baseUrl}/vehicles/${vehicleId}/vehicle_data`);
-  return res.data.response;
+  let data = res.data.response;
+  if (essentialOnly) {
+    data = filterVehicleData(res.data.response);
+  }
+  return data ;
+}
+
+function filterVehicleData(data) {
+  return {
+    'display_name': data.display_name,
+    'state': data.state,
+    'charge_state': {
+      'battery_level': data.charge_state.battery_level,
+      'battery_range': data.charge_state.battery_range,
+      'charging_state': data.charge_state.charging_state
+    },
+    'climate_state': {
+      'inside_temp': data.climate_state.inside_temp,
+      'outside_temp': data.climate_state.outside_temp
+    },
+    'vehicle_state': {
+      'car_version': data.vehicle_state.car_version,
+      'odometer': data.vehicle_state.odometer,
+      'sentry_mode': data.vehicle_state.sentry_mode,
+      'timestamp': data.vehicle_state.timestamp
+    }
+  }
 }
 
 function sleep(ms) {
