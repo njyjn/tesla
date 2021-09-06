@@ -33,6 +33,9 @@ export default async function handler(req, res) {
         'inside_temp': 20,
         'outside_temp': 5
       },
+      'drive_state': {
+        'power': 1
+      },
       'vehicle_state': {
         'car_version': 'mock',
         'odometer': 100,
@@ -116,6 +119,9 @@ function filterVehicleData(data) {
     'climate_state': {
       'inside_temp': data.climate_state.inside_temp,
       'outside_temp': data.climate_state.outside_temp
+    },
+    'drive_state': {
+      'power': data.drive_state.power
     },
     'vehicle_state': {
       'car_version': data.vehicle_state.car_version,

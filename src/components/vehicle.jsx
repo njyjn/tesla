@@ -7,6 +7,7 @@ import { Card, Col, Container, Row, Spinner } from 'react-bootstrap';
 const stateIconMap = {
 	'asleep': '🟡',
 	'online': '🟢',
+  'driving': '🚘',
 	'default': '🔴'
 }
 
@@ -30,10 +31,11 @@ export default function Vehicle () {
       {/* <Image src='/awkward.gif' alt='awkward' width='100%' height='30vh' layout='responsive' /> */}
     </span>
   )
+  const vehicleState = vehicle.drive_state.power !== 0 ? 'driving' : vehicle.state;
 	return (
 		<Container fluid>
 			<p className={styles.description}>
-				{ stateIconMap[vehicle.state] } <b>{ vehicle.display_name }</b> - { vehicle.state }
+				{ stateIconMap[vehicleState] } <b>{ vehicle.display_name }</b> - { vehicleState }
 	    </p>
 			{vehicle.charge_state.charging_state == 'Charging' ?
         <Charging chargeState={vehicle.charge_state} /> :
