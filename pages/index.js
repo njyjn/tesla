@@ -4,7 +4,7 @@ import Vehicle from './vehicle';
 
 export default function Home() {
   return (
-    <div class='container-fluid'>
+    <div className='container-fluid'>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Hello Panda</title>
