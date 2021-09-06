@@ -19,32 +19,32 @@ export default function Vehicle () {
 	)
 	if (!vehicle) return <p>Nothing to see here</p>
 	return (
-		<div class='container'>
+		<div className='container'>
 			<p className={styles.description}>
 				{ stateIconMap[vehicle.state] } <b>{ vehicle.display_name }</b> - { vehicle.state }
 	     		</p>
-			<div class='row'>
-				<div class='col-6'>
+			<div className='row'>
+				<div className='col-6'>
 					<div className={styles.card}>
 						<h2>🔋 Battery</h2>
 						<p>{vehicle.charge_state.battery_level}% ({vehicle.charge_state.battery_range} mi)</p>
 					</div>
 				</div>
-				<div class='col-6'>
+				<div className='col-6'>
 					<div className={styles.card}>
 						<h2>🔌 Charge Status</h2>
 						<p>{vehicle.charge_state.charging_state}</p>
 					</div>
 				</div>
 			</div>
-			<div class='row'>
-				<div class='col-6'>
+			<div className='row'>
+				<div className='col-6'>
 					<div className={styles.card}>
 						<h2>🏃 Odometer</h2>
 						<p>{vehicle.vehicle_state.odometer} mi</p>
 					</div>
 				</div>
-				<div class='col-6'>
+				<div className='col-6'>
 					<div className={styles.card}>
 						<h2>👮‍♀️ Sentry Mode</h2>
 						<div className={styles.code}>
@@ -57,23 +57,23 @@ export default function Vehicle () {
 
 				</div>
 			</div>
-			<div class='row'>
-				<div class='col-6'>
+			<div className='row'>
+				<div className='col-6'>
 					<div className={styles.card}>
 						<h2>🌡 Temperature</h2>
 						<p>{vehicle.climate_state.inside_temp} C | {vehicle.climate_state.outside_temp} C (out)</p>
 					</div>
 				</div>
-				<div class='col-6'>
+				<div className='col-6'>
 					<div className={styles.card}>
 						<h2>⚙️ Software</h2>
 						<p>{vehicle.vehicle_state.car_version}</p>
 					</div>
 				</div>
 			</div>
-      <div class='row'>
-        <div class='col-12'>
-          <p class='text-center'>⏰ Last Updated: {new Date(vehicle.vehicle_state.timestamp).toLocaleString()}</p>
+      <div className='row'>
+        <div className='col-12'>
+          <p className='text-center'>⏰ Last Updated: {new Date(vehicle.vehicle_state.timestamp).toLocaleString()}</p>
         </div>
       </div>
     </div>
