@@ -27,6 +27,7 @@ export default function Home() {
         <meta property="twitter:description" content="Of course I built a dashboard for my Tesla" />
         <meta property="twitter:image" content="%PUBLIC_URL%/meta.jpeg" />
 
+        <Navbar />
       </Head>
       <Row>
         <Col className='lg-12 pt-5' align='center'>

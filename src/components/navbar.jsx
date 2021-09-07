@@ -14,9 +14,6 @@ export default function Navbar() {
       <Nav.Item>
 				<Nav.Link href='/god'>God</Nav.Link>
 			</Nav.Item>
-			<Nav.Item>
-				<Nav.Link href='/'>🏡</Nav.Link>
-			</Nav.Item>
 		</Nav>
 	)
 }
