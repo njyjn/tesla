@@ -1,6 +1,5 @@
 import useVehicle from '../useVehicle';
 import styles from '../../styles/Home.module.css';
-import Image from 'next/image';
 import Charging from './charging';
 import { Card, Col, Container, Row, Spinner } from 'react-bootstrap';
 

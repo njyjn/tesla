@@ -7,11 +7,25 @@ export default function Home() {
   return (
     <Container fluid>
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossOrigin="anonymous" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
         <title>Hello Panda</title>
         <meta name="description" content="Of course I built a dashboard for my Tesla" />
         <link rel="icon" href="/favicon.ico" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://car.justin.sg/" />
+        <meta property="og:title" content="Hello Panda" />
+        <meta property="og:description" content="Of course I built a dashboard for my Tesla" />
+        <meta property="og:image" content="%PUBLIC_URL%/meta.jpeg" />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://car.justin.sg/" />
+        <meta property="twitter:title" content="Hello Panda" />
+        <meta property="twitter:description" content="Of course I built a dashboard for my Tesla" />
+        <meta property="twitter:image" content="%PUBLIC_URL%/meta.jpeg" />
+
       </Head>
       <Row>
         <Col className='lg-12 pt-5' align='center'>
