@@ -6,6 +6,6 @@ export default function useVehicle () {
 	return {
 		vehicle: data,
 		isLoading: !error && !data,
-		isError: error
+		error: error
 	}
 }

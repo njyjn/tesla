@@ -4,12 +4,13 @@ import { useUser } from '@auth0/nextjs-auth0';
 import Head from 'next/head';
 import Vehicle from '../src/components/vehicle';
 import { Button, Col, Container, Form, Nav, Row } from 'react-bootstrap';
+import useGod from '../src/useGod';
 
 export default withPageAuthRequired(function Admin() {
-  const { user, error, isLoading } = useUser();
+  const { vehicle, isLoading: gLoading, error: gError } = useGod();
+  const { user, error: uError, isLoading: uLoading } = useUser();
     
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+  if (uLoading || gLoading) return <div>Loading...</div>;
   return (
     user ? (
       <Container fluid>
@@ -39,7 +40,7 @@ export default withPageAuthRequired(function Admin() {
             </p>
           </Col>
         </Row>
-        <Row>
+        {/* <Row>
           <Col className='lg-12 p-3' align='center'>
             <Button disabled variant='danger' href='/'>Get FULL Data</Button>{' '}
             <Button
@@ -47,17 +48,16 @@ export default withPageAuthRequired(function Admin() {
               onClick={(e) => {e}}
             >Get filtered Data</Button>
           </Col>
-        </Row>
-          <Form className='px-5'>
-            <Form.Control
-              hidden={true}
-              plaintext
-              readOnly
-              as='textarea'
-              rows={20}
-              value=''
-            />
-          </Form>
+        </Row> */}
+        <Form className='px-5'>
+          <Form.Control
+            style={{fontFamily: 'monospace'}}
+            readOnly
+            as='textarea'
+            rows={20}
+            value={vehicle ? JSON.stringify(vehicle, null, 4) : 'Nothing to see here'}
+          />
+        </Form>
         <Row>
         </Row>
         <Row>
