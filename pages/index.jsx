@@ -19,13 +19,13 @@ export default function Home() {
         <meta property="og:url" content="https://car.justin.sg/" />
         <meta property="og:title" content="Hello Panda" />
         <meta property="og:description" content="Of course I built a dashboard for my Tesla" />
-        <meta property="og:image" content="%PUBLIC_URL%/meta.jpeg" />
+        <meta property="og:image" content="meta.jpeg" />
 
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://car.justin.sg/" />
         <meta property="twitter:title" content="Hello Panda" />
         <meta property="twitter:description" content="Of course I built a dashboard for my Tesla" />
-        <meta property="twitter:image" content="%PUBLIC_URL%/meta.jpeg" />
+        <meta property="twitter:image" content="meta.jpeg" />
 
         <Navbar />
       </Head>
