@@ -18,18 +18,12 @@ export default function Vehicle () {
       <p>Initializing...</p>
     </span>
   );
-	if (isError) return (
+	if (isError || !vehicle) return (
 		<span>
       <Spinner animation="grow" variant='danger'/>
 			<p>Waking vehicle... This may take a while</p>
 		</span>
 	)
-	if (!vehicle) return (
-    <span>
-      <p>Nothing to see here</p>
-      {/* <Image src='/awkward.gif' alt='awkward' width='100%' height='30vh' layout='responsive' /> */}
-    </span>
-  )
   const vehicleState = vehicle.drive_state.power !== 0 ? 'driving' : vehicle.state;
 	return (
 		<Container fluid>
