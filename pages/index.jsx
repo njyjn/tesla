@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css';
 import Vehicle from '../src/components/vehicle';
+import Navbar from '../src/components/navbar';
 import { Col, Container, Row } from 'react-bootstrap';
 
 export default function Home() {
