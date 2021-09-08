@@ -2,11 +2,18 @@ import { Card, Col, ProgressBar, Row } from 'react-bootstrap';
 import Countdown from 'react-countdown';
 
 export default function Charging ({ chargeState }) {
-  const timeToFullChargeMs = chargeState.time_to_full_charge * 60 * 60 * 1000;  
+  const timeToFullChargeMs = chargeState.time_to_full_charge * 60 * 60 * 1000;
+  const supercharging = chargeState.fast_charger_present;
+  const colorVariant = supercharging ? 'info' : 'success';
 	return (
 		<Row>
 			<Col className='lg-12'>
-				<Card border='success' style={{ width: '100%' }}>
+				<Card border={colorVariant} style={{ width: '100%' }}>
+          { supercharging &&
+          <Card.Header className='text-center' style={{color: 'white', backgroundColor: '#19CAED'}}>
+            <strong>SUPERCHARGING</strong>
+          </Card.Header>
+          }
           <Card.Body>
             <Card.Title>⚡️ Charge Progress</Card.Title>
               <Row className='p-3'>
@@ -29,8 +36,8 @@ export default function Charging ({ chargeState }) {
               <Row>
                 <Col className='pb-5'>
                   <ProgressBar>
-                    <ProgressBar variant='success' now={chargeState.battery_level} key={1} />
-                    <ProgressBar animated variant='success' now={chargeState.charge_limit_soc - chargeState.battery_level} label={`--> ${chargeState.charge_limit_soc}%`} key={2} />
+                    <ProgressBar variant={colorVariant} now={chargeState.battery_level} key={1} />
+                    <ProgressBar animated variant={colorVariant} now={chargeState.charge_limit_soc - chargeState.battery_level} label={`--> ${chargeState.charge_limit_soc}%`} key={2} />
                     <ProgressBar variant='danger' now={chargeState.charge_limit_soc_max - chargeState.charge_limit_soc} key={3} />
                   </ProgressBar>
                 </Col>

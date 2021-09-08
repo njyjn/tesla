@@ -56,7 +56,8 @@ function filterVehicleData(data) {
 	    'charger_voltage': data.charge_state.charger_voltage,
 	    'charger_actual_current': data.charge_state.charger_actual_current,
 	    'charge_limit_soc': data.charge_state.charge_limit_soc,
-	    'charge_limit_soc_max': data.charge_state.charge_limit_soc_max
+	    'charge_limit_soc_max': data.charge_state.charge_limit_soc_max,
+	    'fast_charger_present': data.charge_state.fast_charger_present
 	  },
 	  'climate_state': {
 	    'inside_temp': data.climate_state.inside_temp,
