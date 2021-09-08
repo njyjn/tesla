@@ -30,7 +30,7 @@ export default function Charging ({ chargeState }) {
                 <Col className='pb-5'>
                   <ProgressBar>
                     <ProgressBar variant='success' now={chargeState.battery_level} key={1} />
-                    <ProgressBar animated variant='success' now={chargeState.charge_limit_soc - chargeState.battery_level} label={`charging to ${chargeState.charge_limit_soc}%`} key={2} />
+                    <ProgressBar animated variant='success' now={chargeState.charge_limit_soc - chargeState.battery_level} label={`--> ${chargeState.charge_limit_soc}%`} key={2} />
                     <ProgressBar variant='danger' now={chargeState.charge_limit_soc_max - chargeState.charge_limit_soc} key={3} />
                   </ProgressBar>
                 </Col>
