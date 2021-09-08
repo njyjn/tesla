@@ -45,8 +45,8 @@ export default function Charging ({ chargeState }) {
                   <h3 className='text-center'>{chargeState.charger_voltage}V</h3>
                 </Col>
                 <Col>
-                  <p className='text-center'>Charge Rate</p>
-                  <h3 className='text-center'>{chargeState.charge_rate}kWh</h3>
+                  <p className='text-center'>Charger Current</p>
+                  <h3 className='text-center'>{chargeState.charger_actual_current}A</h3>
                 </Col>
               </Row>
             </Card.Body>

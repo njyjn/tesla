@@ -54,7 +54,7 @@ function filterVehicleData(data) {
 	    'time_to_full_charge': data.charge_state.time_to_full_charge,
 	    'charger_power': data.charge_state.charger_power,
 	    'charger_voltage': data.charge_state.charger_voltage,
-	    'charge_rate': data.charge_state.charge_rate,
+	    'charger_actual_current': data.charge_state.charger_actual_current,
 	    'charge_limit_soc': data.charge_state.charge_limit_soc,
 	    'charge_limit_soc_max': data.charge_state.charge_limit_soc_max
 	  },
