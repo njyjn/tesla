@@ -24,7 +24,7 @@ export default function Vehicle () {
 			<p>Waking vehicle... This may take a while</p>
 		</span>
 	)
-  const vehicleState = vehicle.drive_state.power !== 0 ? 'driving' : vehicle.state;
+  const vehicleState = vehicle.drive_state.speed ? 'driving' : vehicle.state;
 	return (
 		<Container fluid>
 			<p className={styles.description}>

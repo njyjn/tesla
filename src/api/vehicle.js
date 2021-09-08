@@ -63,7 +63,8 @@ function filterVehicleData(data) {
 	    'outside_temp': data.climate_state.outside_temp
 	  },
 	  'drive_state': {
-	    'power': data.drive_state.power
+	    'power': data.drive_state.power,
+	    'speed': data.drive_state.speed
 	  },
 	  'vehicle_state': {
 	    'car_version': data.vehicle_state.car_version,
