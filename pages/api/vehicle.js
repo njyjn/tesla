@@ -8,7 +8,7 @@ import { wakeVehicle, getVehicleData } from '../../src/api/vehicle';
 let redis = new Redis(process.env.REDIS_URL);
 
 export default async function handler(req, res) {
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.DEMO_MODE === 'true' || process.env.NODE_ENV === 'development') {
     res.status(200).json(mock);
   } else {
     try {

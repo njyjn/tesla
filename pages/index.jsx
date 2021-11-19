@@ -2,7 +2,7 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css';
 import Vehicle from '../src/components/vehicle';
 import Navbar from '../src/components/navbar';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Alert, Col, Container, Row } from 'react-bootstrap';
 
 export default function Home() {
   return (
@@ -26,7 +26,11 @@ export default function Home() {
         <meta property="twitter:title" content="Hello Panda" />
         <meta property="twitter:description" content="Of course I built a dashboard for my Tesla" />
         <meta property="twitter:image" content="https://car.justin.sg/meta.jpeg" />
-
+        {process.env.DEMO_MODE === 'true' ?
+          <Alert variant="warning">
+            <center>Here is a demo of the app while I fix (or find the time to) some issues with the Tesla API. Enjoy!</center>
+          </Alert> : ""
+        }
         <Navbar />
       </Head>
       <Row>
